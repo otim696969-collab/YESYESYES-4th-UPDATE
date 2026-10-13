@@ -490,7 +490,9 @@ final class PathPowers {
 	private static boolean barrier(ServerPlayer p, ServerLevel level, PlayerIdentity id) {
 		BlockPos c = p.blockPosition();
 		int ticks = has(id, Power.REVIVE) ? 400 : 220; // the third power makes it last
-		BlockState glass = Blocks.LIGHT_BLUE_STAINED_GLASS.defaultBlockState();
+		BlockState glass = BuiltInRegistries.BLOCK
+        .get(ResourceLocation.withDefaultNamespace("light_blue_stained_glass"))
+        .defaultBlockState();
 		for (int dx = -2; dx <= 2; dx++) {
 			for (int dz = -2; dz <= 2; dz++) {
 				if (Math.abs(dx) != 2 && Math.abs(dz) != 2) {
