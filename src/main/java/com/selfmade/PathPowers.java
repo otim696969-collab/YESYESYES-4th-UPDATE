@@ -15,7 +15,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -491,7 +491,8 @@ final class PathPowers {
 		BlockPos c = p.blockPosition();
 		int ticks = has(id, Power.REVIVE) ? 400 : 220; // the third power makes it last
 		BlockState glass = BuiltInRegistries.BLOCK
-        .get(ResourceLocation.withDefaultNamespace("light_blue_stained_glass"))
+        .get(Identifier.withDefaultNamespace("light_blue_stained_glass"))
+        .orElseThrow().value()
         .defaultBlockState();
 		for (int dx = -2; dx <= 2; dx++) {
 			for (int dz = -2; dz <= 2; dz++) {
